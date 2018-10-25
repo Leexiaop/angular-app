@@ -1,1 +1,55 @@
-<div>这是主要页面</div>
+<nz-layout>
+    <nz-header>行善是一种轮回！！！！！！</nz-header>
+    <nz-layout>
+      <nz-sider>
+        <ul nz-menu [nzMode]="'inline'" style="width: 100%;">
+            <!-- <li nz-submenu>
+              <span title><i nz-icon type="mail"></i> Navigation One</span>
+              <ul>
+                <li nz-menu-group>
+                  <span title>Item 1</span>
+                  <ul>
+                    <li nz-menu-item>Option 1</li>
+                    <li nz-menu-item>Option 2</li>
+                  </ul>
+                </li>
+                <li nz-menu-group>
+                  <span title>Item 2</span>
+                  <ul>
+                    <li nz-menu-item>Option 3</li>
+                    <li nz-menu-item>Option 4</li>
+                  </ul>
+                </li>
+              </ul>
+            </li> -->
+            <li nz-submenu *ngFor="let obj of menuList">
+              <span title><i nz-icon [type]="obj.type"></i>{{obj.content}}</span>
+              <ul>
+                <ng-container *ngIf="obj.items && obj.items.length">
+                    <li nz-menu-item *ngFor="let item of obj.items" [routerLink]="item.router">{{item.content}}</li>
+                </ng-container>
+                <ng-container *ngIf="obj.subMenuList && obj.subMenuList.length">
+                    <li nz-submenu *ngFor="let subMenu of obj.subMenuList">
+                        <span title>{{subMenu.title}}</span>
+                        <ul *ngIf="subMenu.items && subMenu.items.length">
+                            <li nz-menu-item *ngFor="let subItem of subMenu.items" [routerLink]="subItem.router">{{subItem.content}}</li>
+                        </ul>
+                    </li>
+                </ng-container>
+              </ul>
+            </li>
+            <!-- <li nz-submenu>
+              <span title><i nz-icon type="setting"></i> Navigation Three</span>
+              <ul>
+                <li nz-menu-item>Option 9</li>
+                <li nz-menu-item>Option 10</li>
+                <li nz-menu-item>Option 11</li>
+              </ul>
+            </li> -->
+        </ul>
+      </nz-sider>
+      <nz-content>
+        <router-outlet></router-outlet>        
+      </nz-content>
+    </nz-layout>
+</nz-layout>

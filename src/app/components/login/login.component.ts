@@ -1,7 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd';
-import { Route } from '@angular/compiler/src/core';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,23 +10,15 @@ import { Route } from '@angular/compiler/src/core';
 export class LoginComponent implements OnInit {
   title = 'login';
   validateForm: FormGroup;
-
   submitForm(): void {
-    console.log(this.validateForm);
     if (!this.validateForm.value.userName || !this.validateForm.value.password) {
       this.message.create('warning', `请填写用户名和密码！`);
+      return;
     }
-    // this.router.navigateByUrl('main');
-    // for (const i of Object.keys(this.validateForm.controls)) {
-    //   this.validateForm.controls[ i ].markAsDirty();
-    //   this.validateForm.controls[ i ].updateValueAndValidity();
-    // }
-    // this.router.navigate(['app-main']);
+    this.router.navigateByUrl('/app-main');
   }
-
-  // constructor(private fb: FormBuilder, private message: NzMessageService, private router: Route) {
-  // }
-  constructor( private fb: FormBuilder, private message: NzMessageService) {}
+  constructor(private fb: FormBuilder, private message: NzMessageService, private router: Router) {
+  }
   ngOnInit(): void {
     this.validateForm = this.fb.group({
       userName: [ null, [ Validators.required ] ],

@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
-
+import { FirstComponent } from './views/firstComponent/firstComponent.component';
+import { SecondComponent } from './views/secondComponent/secondComponent.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -20,7 +21,9 @@ registerLocaleData(zh);
   declarations: [
     AppComponent,
     LoginComponent,
-    MainComponent
+    MainComponent,
+    FirstComponent,
+    SecondComponent
   ],
   imports: [
     BrowserModule,
