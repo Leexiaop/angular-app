@@ -1,1 +1,20 @@
-<div>这是第一个组件</div>
+<nz-table #nzTable [nzData]="insureList" [nzShowPagination]="false" [nzFrontPagination]="false">
+    <thead>
+      <tr>
+        <th>序号</th>
+        <th>Template</th>
+        <th>名称</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let data of nzTable.data; index as i">
+        <td>{{i + 1}}</td>
+        <td>{{data.template}}</td>
+        <td>{{data.title}}</td>
+        <td>
+            <button nz-button nzType="primary" (click)="editor(data)">编辑</button>
+        </td>
+      </tr>
+    </tbody>
+</nz-table>

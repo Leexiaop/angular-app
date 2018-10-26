@@ -13,15 +13,15 @@ export class MainComponent implements OnInit {
       content: '菜单一',
       type: 'home',
       items: [
-        { id: 1, content: 'option1', router: '/app-first-component' },
-        { id: 2, content: 'option1', router: '/app-second-component' }
+        { id: 1, content: 'option1', router: 'app-first-component' },
+        { id: 2, content: 'option1', router: 'app-second-component' }
       ],
       subMenuList: [
         {
           id: 1,
           title: '这是副标题1',
           items: [
-            { id: 1, content: 'optiooooooo1', router: '/app-first-component'}
+            { id: 1, content: 'optiooooooo1', router: 'app-first-component'}
           ]
         }
       ]
@@ -31,8 +31,8 @@ export class MainComponent implements OnInit {
       content: '菜单二',
       type: 'border',
       items: [
-        { id: 1, content: 'option1', router: '/app-first-component' },
-        { id: 2, content: 'option1', router: '/app-second-component' }
+        { id: 1, content: 'option1', router: 'app-first-component' },
+        { id: 2, content: 'option1', router: 'app-second-component' }
       ]
     }
   ];

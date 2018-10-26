@@ -21,6 +21,7 @@ const routes: Routes = [
     path: 'app-main',
     component: MainComponent,
     children: [
+      { path: '', redirectTo: '/app-main/app-first-component', pathMatch: 'full'},
       { path: 'app-first-component', component: FirstComponent },
       { path: 'app-second-component', component: SecondComponent }
     ]

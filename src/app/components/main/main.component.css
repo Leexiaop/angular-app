@@ -15,7 +15,7 @@
   }
 
   :host ::ng-deep .ant-layout-content {
-    background: rgba(16, 142, 233, 1);
+    /* background: rgba(16, 142, 233, 1); */
     color: #fff;
     min-height: 120px;
     line-height: 120px;
