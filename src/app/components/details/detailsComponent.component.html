@@ -1,8 +1,8 @@
-<div style="color:black">{{content}}</div>
+<div class="childTitle">{{childTitle}}</div>
 <nz-table #nzTable [nzData]="insureList" [nzShowPagination]="false" [nzFrontPagination]="false">
     <thead>
       <tr>
-        <th [appBackground]="'red'">序号</th>
+        <th>序号</th>
         <th>Template</th>
         <th>名称</th>
         <th>操作</th>
@@ -14,7 +14,7 @@
         <td>{{data.template}}</td>
         <td>{{data.title}}</td>
         <td>
-            <button nz-button nzType="primary" (click)="editor(data)">编辑</button>
+            <button nz-button nzType="primary" (click)="edit(data)">编辑</button>
         </td>
       </tr>
     </tbody>

@@ -6,6 +6,11 @@ import { LoginComponent } from './components/login/login.component';
 import { MainComponent } from './components/main/main.component';
 import { FirstComponent } from './views/firstComponent/firstComponent.component';
 import { SecondComponent } from './views/secondComponent/secondComponent.component';
+import { DetailsComponent } from './components/details/detailsComponent.component';
+
+import { DataService } from './service/data.service';
+
+import { AppBackgroundDirective } from './directive/appBackground.directive';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -23,7 +28,9 @@ registerLocaleData(zh);
     LoginComponent,
     MainComponent,
     FirstComponent,
-    SecondComponent
+    SecondComponent,
+    DetailsComponent,
+    AppBackgroundDirective
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,10 @@ registerLocaleData(zh);
     NgZorroAntdModule,
     AppRoutingModule
   ],
-  providers: [{ provide: NZ_I18N, useValue: zh_CN }],
+  providers: [
+    { provide: NZ_I18N, useValue: zh_CN },
+    { provide: DataService, useClass: DataService}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

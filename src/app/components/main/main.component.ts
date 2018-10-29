@@ -13,8 +13,8 @@ export class MainComponent implements OnInit {
       content: '菜单一',
       type: 'home',
       items: [
-        { id: 1, content: 'option1', router: 'app-first-component' },
-        { id: 2, content: 'option1', router: 'app-second-component' }
+        { id: 1, content: '标题一', router: 'app-first-component' },
+        { id: 2, content: '标题二', router: 'app-second-component' }
       ],
       subMenuList: [
         {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import urlObj from '../../../assets/api/url';
 import { HttpClient } from '@angular/common/http';
+import { DataService} from '../../service/data.service';
 
 interface Data {
   insurances: Array<any>;
@@ -18,13 +19,15 @@ interface Result {
 
 export class FirstComponent implements OnInit {
   public insureList: Array<any> = [];
-  constructor(private http: HttpClient) {}
+  public content: string;
+  constructor(private http: HttpClient, public dataService: DataService) {}
   ngOnInit(): void {
     this.http.get(urlObj.list).subscribe((res: Result) => {
       this.insureList = res.data.insurances;
     });
   }
   editor(item): void {
-    console.log(item);
+    this.content = this.dataService.content;
+    console.log(this.content);
   }
 }

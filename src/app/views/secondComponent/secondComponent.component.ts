@@ -7,5 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class SecondComponent implements OnInit {
-  ngOnInit(): void {}
+  public title: string;
+  ngOnInit(): void {
+    this.title = '世界那么大';
+  }
+  getEditMessage(message: Object): void {
+    console.log(message);
+  }
 }
