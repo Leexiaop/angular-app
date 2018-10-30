@@ -12,9 +12,10 @@ import { DataService } from './service/data.service';
 
 import { AppBackgroundDirective } from './directive/appBackground.directive';
 
+// import { AppInterceptor } from './app-interceptor.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgZorroAntdModule, NZ_I18N, zh_CN } from 'ng-zorro-antd';
 import { registerLocaleData } from '@angular/common';
 import zh from '@angular/common/locales/zh';
@@ -43,6 +44,7 @@ registerLocaleData(zh);
   ],
   providers: [
     { provide: NZ_I18N, useValue: zh_CN },
+    // { provide: HTTP_INTERCEPTORS, useClass: AppInterceptor, multi: true},
     { provide: DataService, useClass: DataService}
   ],
   bootstrap: [AppComponent]

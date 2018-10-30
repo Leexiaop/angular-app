@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { NzMessageService } from 'ng-zorro-antd';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import urlObj from '../../../assets/api/url';
+interface Res {
+  code: number;
+}
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,14 +15,17 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   title = 'login';
   validateForm: FormGroup;
+  constructor(private fb: FormBuilder, private message: NzMessageService, private router: Router, private http: HttpClient) {}
   submitForm(): void {
     if (!this.validateForm.value.userName || !this.validateForm.value.password) {
       this.message.create('warning', `请填写用户名和密码！`);
       return;
     }
-    this.router.navigateByUrl('/app-main');
-  }
-  constructor(private fb: FormBuilder, private message: NzMessageService, private router: Router) {
+    this.http.get(urlObj.list + 'a').subscribe((res: Res) => {
+      if (res.code === 0) {
+        this.router.navigateByUrl('/app-main');
+      }
+    });
   }
   ngOnInit(): void {
     this.validateForm = this.fb.group({
