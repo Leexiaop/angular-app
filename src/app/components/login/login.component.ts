@@ -21,9 +21,13 @@ export class LoginComponent implements OnInit {
       this.message.create('warning', `请填写用户名和密码！`);
       return;
     }
-    this.http.get(urlObj.list + 'a').subscribe((res: Res) => {
+    const userStr: string = JSON.stringify(this.validateForm.value);
+    sessionStorage.setItem( 'user', userStr );
+    this.http.get(urlObj.list).subscribe((res: Res) => {
       if (res.code === 0) {
         this.router.navigateByUrl('/app-main');
+      } else {
+        this.message.create('warning', '登录失败！');
       }
     });
   }
