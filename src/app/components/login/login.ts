@@ -11,9 +11,7 @@ export  class Login implements  CanActivate {
     const userStr = sessionStorage.getItem('validateForm');
     const user: User = JSON.parse(userStr);
     if (user && user.userName) {
-      alert(user.userName);
-      console.log('路由守卫验证通过!');
-      alert('路由守卫验证通过!');
+      this.router.navigateByUrl('/app-main');
       return true;
     } else {
       console.log('路由守卫验证失败!');
